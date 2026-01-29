@@ -1,0 +1,346 @@
+{
+  "nodes" : [ {
+    "uniqueId" : "spring-javaformat-maven-plugin",
+    "nodeType" : "system",
+    "name" : "m2e.version",
+    "description" : "System containing spring-javaformat-maven-plugin services"
+  }, {
+    "uniqueId" : "owner",
+    "nodeType" : "service",
+    "name" : "Owner",
+    "description" : "REST API with endpoints: GET /owners/new, POST /owners/new, GET /owners/find, GET /owners, GET /owners/{ownerId}/edit and 2 more",
+    "interfaces" : [ {
+      "uniqueId" : "owner-api",
+      "protocol" : "HTTP",
+      "port" : 8080
+    } ]
+  }, {
+    "uniqueId" : "pet",
+    "nodeType" : "service",
+    "name" : "Pet",
+    "description" : "REST API with endpoints: GET /owners/{ownerId}/pets/new, POST /owners/{ownerId}/pets/new, GET /owners/{ownerId}/pets/{petId}/edit, POST /owners/{ownerId}/pets/{petId}/edit",
+    "interfaces" : [ {
+      "uniqueId" : "pet-api",
+      "protocol" : "HTTP",
+      "port" : 8080
+    } ]
+  }, {
+    "uniqueId" : "visit",
+    "nodeType" : "service",
+    "name" : "Visit",
+    "description" : "REST API with endpoints: GET /owners/{ownerId}/pets/{petId}/visits/new, POST /owners/{ownerId}/pets/{petId}/visits/new",
+    "interfaces" : [ {
+      "uniqueId" : "visit-api",
+      "protocol" : "HTTP",
+      "port" : 8080
+    } ]
+  }, {
+    "uniqueId" : "crash",
+    "nodeType" : "service",
+    "name" : "Crash",
+    "description" : "REST API with endpoints: GET /oups",
+    "interfaces" : [ {
+      "uniqueId" : "crash-api",
+      "protocol" : "HTTP",
+      "port" : 8080
+    } ]
+  }, {
+    "uniqueId" : "welcome",
+    "nodeType" : "service",
+    "name" : "Welcome",
+    "description" : "REST API with endpoints: GET /",
+    "interfaces" : [ {
+      "uniqueId" : "welcome-api",
+      "protocol" : "HTTP",
+      "port" : 8080
+    } ]
+  }, {
+    "uniqueId" : "vet",
+    "nodeType" : "service",
+    "name" : "Vet",
+    "description" : "REST API with endpoints: GET /vets.html, GET /",
+    "interfaces" : [ {
+      "uniqueId" : "vet-api",
+      "protocol" : "HTTP",
+      "port" : 8080
+    } ]
+  }, {
+    "uniqueId" : "owner-data",
+    "nodeType" : "data-asset",
+    "name" : "Owner",
+    "description" : "Entity owner with fields: address, city, telephone, pets"
+  }, {
+    "uniqueId" : "pet-data",
+    "nodeType" : "data-asset",
+    "name" : "Pet",
+    "description" : "Entity pet with fields: birthDate, type, visits"
+  }, {
+    "uniqueId" : "pet-type-data",
+    "nodeType" : "data-asset",
+    "name" : "PetType",
+    "description" : "Entity pet type"
+  }, {
+    "uniqueId" : "visit-data",
+    "nodeType" : "data-asset",
+    "name" : "Visit",
+    "description" : "Entity visit with fields: date, description"
+  }, {
+    "uniqueId" : "specialty-data",
+    "nodeType" : "data-asset",
+    "name" : "Specialty",
+    "description" : "Entity specialty"
+  }, {
+    "uniqueId" : "vet-data",
+    "nodeType" : "data-asset",
+    "name" : "Vet",
+    "description" : "Entity vet with fields: specialties"
+  }, {
+    "uniqueId" : "owners-db",
+    "nodeType" : "database",
+    "name" : "owners Store",
+    "description" : "SQL database for owners data"
+  }, {
+    "uniqueId" : "owner-db",
+    "nodeType" : "database",
+    "name" : "Owner Store",
+    "description" : "SQL database for Owner data"
+  }, {
+    "uniqueId" : "pets-db",
+    "nodeType" : "database",
+    "name" : "pets Store",
+    "description" : "SQL database for pets data"
+  }, {
+    "uniqueId" : "types-db",
+    "nodeType" : "database",
+    "name" : "types Store",
+    "description" : "SQL database for types data"
+  }, {
+    "uniqueId" : "pet-type-db",
+    "nodeType" : "database",
+    "name" : "PetType Store",
+    "description" : "SQL database for PetType data"
+  }, {
+    "uniqueId" : "visits-db",
+    "nodeType" : "database",
+    "name" : "visits Store",
+    "description" : "SQL database for visits data"
+  }, {
+    "uniqueId" : "specialties-db",
+    "nodeType" : "database",
+    "name" : "specialties Store",
+    "description" : "SQL database for specialties data"
+  }, {
+    "uniqueId" : "vets-db",
+    "nodeType" : "database",
+    "name" : "vets Store",
+    "description" : "SQL database for vets data"
+  }, {
+    "uniqueId" : "vet-db",
+    "nodeType" : "database",
+    "name" : "Vet Store",
+    "description" : "SQL database for Vet data"
+  }, {
+    "uniqueId" : "my-sql-integration-tests-service",
+    "nodeType" : "service",
+    "name" : "My Sql Integration Tests Service",
+    "description" : "External Spring RestTemplate service"
+  }, {
+    "uniqueId" : "pet-clinic-integration-tests-service",
+    "nodeType" : "service",
+    "name" : "Pet Clinic Integration Tests Service",
+    "description" : "External Spring RestTemplate service"
+  }, {
+    "uniqueId" : "postgres-integration-tests-service",
+    "nodeType" : "service",
+    "name" : "Postgres Integration Tests Service",
+    "description" : "External Spring RestTemplate service"
+  } ],
+  "relationships" : [ {
+    "uniqueId" : "visit-to-owners-db",
+    "relationshipType" : "connects",
+    "source" : {
+      "node" : "visit"
+    },
+    "destination" : {
+      "node" : "owners-db",
+      "interfaceId" : "jdbc"
+    },
+    "protocol" : "JDBC"
+  }, {
+    "uniqueId" : "visit-to-owner-db",
+    "relationshipType" : "connects",
+    "source" : {
+      "node" : "visit"
+    },
+    "destination" : {
+      "node" : "owner-db",
+      "interfaceId" : "jdbc"
+    },
+    "protocol" : "JDBC"
+  }, {
+    "uniqueId" : "visit-to-pets-db",
+    "relationshipType" : "connects",
+    "source" : {
+      "node" : "visit"
+    },
+    "destination" : {
+      "node" : "pets-db",
+      "interfaceId" : "jdbc"
+    },
+    "protocol" : "JDBC"
+  }, {
+    "uniqueId" : "visit-to-types-db",
+    "relationshipType" : "connects",
+    "source" : {
+      "node" : "visit"
+    },
+    "destination" : {
+      "node" : "types-db",
+      "interfaceId" : "jdbc"
+    },
+    "protocol" : "JDBC"
+  }, {
+    "uniqueId" : "visit-to-pet-type-db",
+    "relationshipType" : "connects",
+    "source" : {
+      "node" : "visit"
+    },
+    "destination" : {
+      "node" : "pet-type-db",
+      "interfaceId" : "jdbc"
+    },
+    "protocol" : "JDBC"
+  }, {
+    "uniqueId" : "visit-to-visits-db",
+    "relationshipType" : "connects",
+    "source" : {
+      "node" : "visit"
+    },
+    "destination" : {
+      "node" : "visits-db",
+      "interfaceId" : "jdbc"
+    },
+    "protocol" : "JDBC"
+  }, {
+    "uniqueId" : "vet-to-specialties-db",
+    "relationshipType" : "connects",
+    "source" : {
+      "node" : "vet"
+    },
+    "destination" : {
+      "node" : "specialties-db",
+      "interfaceId" : "jdbc"
+    },
+    "protocol" : "JDBC"
+  }, {
+    "uniqueId" : "vet-to-vets-db",
+    "relationshipType" : "connects",
+    "source" : {
+      "node" : "vet"
+    },
+    "destination" : {
+      "node" : "vets-db",
+      "interfaceId" : "jdbc"
+    },
+    "protocol" : "JDBC"
+  }, {
+    "uniqueId" : "vet-to-vet-db",
+    "relationshipType" : "connects",
+    "source" : {
+      "node" : "vet"
+    },
+    "destination" : {
+      "node" : "vet-db",
+      "interfaceId" : "jdbc"
+    },
+    "protocol" : "JDBC"
+  }, {
+    "uniqueId" : "visit-to-my-sql-integration-tests-service",
+    "relationshipType" : "connects",
+    "source" : {
+      "node" : "visit"
+    },
+    "destination" : {
+      "node" : "my-sql-integration-tests-service",
+      "interfaceId" : "api"
+    },
+    "protocol" : "HTTPS"
+  }, {
+    "uniqueId" : "visit-to-pet-clinic-integration-tests-service",
+    "relationshipType" : "connects",
+    "source" : {
+      "node" : "visit"
+    },
+    "destination" : {
+      "node" : "pet-clinic-integration-tests-service",
+      "interfaceId" : "api"
+    },
+    "protocol" : "HTTPS"
+  }, {
+    "uniqueId" : "visit-to-postgres-integration-tests-service",
+    "relationshipType" : "connects",
+    "source" : {
+      "node" : "visit"
+    },
+    "destination" : {
+      "node" : "postgres-integration-tests-service",
+      "interfaceId" : "api"
+    },
+    "protocol" : "HTTPS"
+  }, {
+    "uniqueId" : "spring-javaformat-maven-plugin-contains-owner",
+    "relationshipType" : "composed-of",
+    "source" : {
+      "node" : "spring-javaformat-maven-plugin"
+    },
+    "destination" : {
+      "node" : "owner"
+    }
+  }, {
+    "uniqueId" : "spring-javaformat-maven-plugin-contains-pet",
+    "relationshipType" : "composed-of",
+    "source" : {
+      "node" : "spring-javaformat-maven-plugin"
+    },
+    "destination" : {
+      "node" : "pet"
+    }
+  }, {
+    "uniqueId" : "spring-javaformat-maven-plugin-contains-visit",
+    "relationshipType" : "composed-of",
+    "source" : {
+      "node" : "spring-javaformat-maven-plugin"
+    },
+    "destination" : {
+      "node" : "visit"
+    }
+  }, {
+    "uniqueId" : "spring-javaformat-maven-plugin-contains-crash",
+    "relationshipType" : "composed-of",
+    "source" : {
+      "node" : "spring-javaformat-maven-plugin"
+    },
+    "destination" : {
+      "node" : "crash"
+    }
+  }, {
+    "uniqueId" : "spring-javaformat-maven-plugin-contains-welcome",
+    "relationshipType" : "composed-of",
+    "source" : {
+      "node" : "spring-javaformat-maven-plugin"
+    },
+    "destination" : {
+      "node" : "welcome"
+    }
+  }, {
+    "uniqueId" : "spring-javaformat-maven-plugin-contains-vet",
+    "relationshipType" : "composed-of",
+    "source" : {
+      "node" : "spring-javaformat-maven-plugin"
+    },
+    "destination" : {
+      "node" : "vet"
+    }
+  } ],
+  "$schema" : "https://calm.finos.org/draft/2025-03/meta/calm.json"
+}

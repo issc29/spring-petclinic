@@ -1,0 +1,4 @@
+Source path,Artifact type,Container image,Exposed port,Description
+docker-compose.yml,docker-compose,,,"Docker Compose configuration with 2 service(s): mysql, postgres"
+k8s/db.yml,Kubernetes,,,Kubernetes Deployment 'demo-db'
+k8s/petclinic.yml,Kubernetes,,,Kubernetes Deployment 'petclinic'
